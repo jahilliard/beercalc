@@ -1,10 +1,11 @@
 <head>
-	<title> Beer Calculator </title
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script
 		type='text/javascript'
 		src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'>
 	</script>
+	<title> Beer Calculator </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 	<script type='text/javascript' src='beercalc.js'></script>
 </head>
 <body>
@@ -13,8 +14,8 @@
 	<div id="pictureArea"></div>
 	<form id="f1">
 		<p id="inputArea">Type the name of the Beer you have drank.</p>
-		<input id="beername" type="text" name="name" value="" /><br>
-		<select>
+		<input id="beername" type="text" name="name"/><br>
+		<select name="quantity">
 			<option value = "1">1</option>
 			<option value = "2">2</option>
 			<option value = "3">3</option>
@@ -26,7 +27,7 @@
 			<option value = "9">9</option>
 			<option value = "10">10</option>
 		</select>
-		<input type="submit" value="Play"/>
+		<input type="button" value="Calculate" onclick="getBeer(this.form.name.value, quantity.value)"/>
 	</form>
 
 </body>
