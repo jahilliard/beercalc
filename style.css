@@ -1,0 +1,39 @@
+body{
+ background-image: url('photos/beer_texture1953.jpg');
+    color:white;
+    font-family: 'Roboto Slab', Arial, serif;
+    font-weight: 400;
+}
+
+h1{
+    color: white;
+    font-family: 'Roboto Slab', Arial, serif;
+    font-weight: 700;
+    font-size: 6em;
+    text-shadow: 5px 3px 5px black;
+}
+
+.panel-black{
+    background: black;
+    border-color:black;
+}
+
+#panel-result{
+    margin-top: 60px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 20px;
+}
+
+#result-font{
+    font-size: 2em;
+}
+
+#panel-input{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
