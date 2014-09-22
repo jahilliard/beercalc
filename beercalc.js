@@ -71,25 +71,18 @@ $(function() {
 
 });
 
-  $(function() {    // do once original document loaded and ready
-        $('form[name="eg1"] input').click(function() {
-                $.getJSON("cats.json", function(responseObject, diditwork) {
+$( document ).ready(function() {
+$(function() {    // do once original document loaded and ready
+        $('#info').click(function() {
+                $.getJSON("devs.json", function(responseObject, diditwork) {
                         console.log(diditwork);
-                        var displayText = 
-                                "There are " 
-                                + responseObject.cats.length 
-                                + " homies:<ol>";
-                        for (var i = 0; i<responseObject.cats.length; i++) {
-                                var cat = responseObject.cats[i];
-                                displayText += "<li>"
-                                                        +cat.firstName + " " 
-                                                        + cat.lastName + "<\/li>";
-                                }
-                        displayText += "<\/ul>";
-                $("#responseArea").html(displayText);
+                        var displayText = responseObject.devs[0];
+                        console.log(displayText);
+                $(" WHERE IT GOES ").html(displayText);
                 } );  // getJSON
         } );  // click
   } ); // onReady
+});
 
 
 
