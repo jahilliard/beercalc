@@ -1,5 +1,7 @@
+//gobal jsonp called list of beers 
 var beerlist = [];
 
+//checks if the beer is in the system and updates HTML accordingly
 function getBeer(beername, quantity) {
   for (var i = beerlist.length - 1; i >= 0; i--) {
     if (beerlist[i].name.toLowerCase() === beername.toLowerCase()){
@@ -15,7 +17,8 @@ function getBeer(beername, quantity) {
 
 }
 
-  function calculateShot(beer, num) {
+//calculates the amount of standard drinks 
+function calculateShot(beer, num) {
   var abv = beer.abv;
   var size = 12;
   var numofstdrinks = (abv/100)*size*2*num;
@@ -24,19 +27,23 @@ function getBeer(beername, quantity) {
   return numofstdrinks;
 }
 
+//adds the picture to the HTML from the Beer info
 function addPicture(beer){
   $("#beer-image img").attr('src',beer.image_url);
 }
 
+//removes the picture from the HTML if it is not in the system
 function removePicture(){
   $("#beer-image img").attr('src',"");
 }
 
+//changes the button to a green check 
 function goodButton(){
   $("#add-button").html('<span class="glyphicon glyphicon-ok"></span>');
   $("#add-button").removeClass("btn-danger").addClass("btn-success");
 }
 
+//changes the button to a red X
 function badButton(){
   $("#add-button").html('<span class="glyphicon glyphicon-remove"></span>');
   $("#add-button").removeClass("btn-success").addClass("btn-danger");
@@ -44,6 +51,7 @@ function badButton(){
 
 $(document).ready(function(){
 
+//makes the ajax jsonp call when the document is loaded
 $(function() {
 
     var beernames=[]; 
@@ -53,6 +61,7 @@ $(function() {
       url: 'http://ontariobeerapi.ca/beers/?format=jsonp',
       dataType: "jsonp",
       success: function (response) {
+                //handles the auto complete and sets the gobal beerlist variable 
 
                 beerlist=response; 
 
@@ -72,6 +81,7 @@ $(function() {
 
 });
 
+//handles the local json call for the developer info
 $( document ).ready(function() {
 $(function() {    // do once original document loaded and ready
         $('#info').click(function() {
