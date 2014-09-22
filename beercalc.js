@@ -1,72 +1,71 @@
 console.log("loaded");
 
+var beerlist = [];
+
 function getBeer(beername, quantity) {
-	console.log("hit");
-	try {
-			$.ajax({
-		 		url:"http://ontariobeerapi.ca/beers/?callback=?",
-		  		dataType: "jsonp",
-				crossDomain: true,
-				complete: function(jqXHR) {
-       				if(jqXHR.readyState === 4) {
-       					console.log("justin waz here");
-       					console.log(jqXHR);
-					};
-				}
-			} );
-		} 
-	catch (e) {console.log(e.description);
-					 console.log("nope");
-				};
 
-	$("#add-button").html('<span class="glyphicon glyphicon-ok"></span>');
-	$('#add-button').addClass("btn-success");
+  console.log("hit")
 
-	console.log("DGSFSDGSDFGSDG");
- };	
+  try{
+    $.ajax({
+      url: 'http://ontariobeerapi.ca/beers/?format=jsonp',
+      dataType: "jsonp",
+      success: function (response) {
+                var beername = document.getElementById("input-name").value; 
+                var num = document.getElementById("input-quantity").value;
 
-function accessData(response) {
-	var beers = response.beers;
-	console.log(beers);
-	console.log("waz hurr");
-};
 
-function calculateShot(beer, num) {
-	var abv = 5.5;
-	var size = 12;
-	var numofstdrinks = (abv/100)*size*2;
-	document.getElementById("drink-count").innerHTML = numofstdrinks*num;
-	return numofstdrinks;
+
+                console.log(beername);
+                window.allbeers = response;
+                var beers = response;
+                var beerCounter = response.length;
+                console.log(beerCounter);
+                console.log(beers[0]);
+
+              }
+
+
+      });
+    return false;
+    } catch (e){console.log(e.description);}
+  }
+
+  function calculateShot(beer, num) {
+  var abv = 5.5;
+  var size = 12;
+  var numofstdrinks = (abv/100)*size*2;
+  document.getElementById("drink-count").innerHTML = numofstdrinks*num;
+  return numofstdrinks;
 }
+
 
 $(document).ready(function(){
 
 $(function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "Budweiser",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $("#input-name").autocomplete({ source : availableTags });
+
+    var beernames=[]; 
+
+    try{
+    $.ajax({
+      url: 'http://ontariobeerapi.ca/beers/?format=jsonp',
+      dataType: "jsonp",
+      success: function (response) {
+
+                beerlist=response; 
+
+                for(var i=0; i<beerlist.length; i++){
+                  beernames.push(beerlist[i].name);
+                }
+
+                $("#input-name").autocomplete({ source : beernames });
+
+              }
+
+
+      });
+    return false;
+    } catch (e){console.log(e.description);}
   });
 
 });
@@ -78,7 +77,7 @@ $(function() {    // do once original document loaded and ready
                         console.log(diditwork);
                         var displayText = responseObject.devs[0];
                         console.log(displayText);
-                $(" WHERE IT GOES ").html(displayText);
+                $("#dev-info").html(displayText);
                 } );  // getJSON
         } );  // click
   } ); // onReady
