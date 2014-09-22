@@ -23,7 +23,8 @@ function getBeer(beername, quantity) {
 
 
 
-
+	$("#add-button").html('<span class="glyphicon glyphicon-ok"></span>');
+	$('#add-button').addClass("btn-success");
 
 
 	// 	function(beername) {
