@@ -7,11 +7,10 @@ function getBeer(beername, quantity) {
 		 		url:"http://ontariobeerapi.ca/beers",
 		  		dataType: "jsonp",
 				crossDomain: true,
-				jsoncallback: "accessData",
 				complete: function(jqXHR) {
        				if(jqXHR.readyState === 4) {
        					console.log("justin waz here");
-       					console.log(jqXHR.Response);
+       					console.log(jqXHR);
 					};
 				}
 			} );
