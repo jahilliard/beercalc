@@ -6,6 +6,7 @@ function getBeer(beername, quantity) {
   for (var i = beerlist.length - 1; i >= 0; i--) {
     if (beerlist[i].name.toLowerCase() === beername.toLowerCase()){
       calculateShot(beerlist[i], quantity);
+      addPicture(beerlist[i])
       return false;
     }
   };
@@ -22,8 +23,8 @@ function getBeer(beername, quantity) {
   return numofstdrinks;
 }
 
-function addPicture(){
-  
+function addPicture(beer){
+  $("#beer-image img").attr('src',beer.image_url);
 }
 
 $(document).ready(function(){

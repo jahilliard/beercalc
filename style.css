@@ -43,6 +43,7 @@ h1{
 }
 
 #beer-image img{
+    margin-top: 20px;
 -webkit-border-radius: 20px;
 -moz-border-radius: 20px;
 border-radius: 20px;  
