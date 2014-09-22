@@ -3,39 +3,22 @@ console.log("loaded");
 var beerlist = [];
 
 function getBeer(beername, quantity) {
+  for (var i = beerlist.length - 1; i >= 0; i--) {
+    if (beerlist[i].name.toLowerCase() === beername.toLowerCase()){
+      calculateShot(beerlist[i], quantity);
+      return false;
+    }
+  };
+  $("#result-font").html("This is not a beer in the System!");
 
-  console.log("hit")
-
-  try{
-    $.ajax({
-      url: 'http://ontariobeerapi.ca/beers/?format=jsonp',
-      dataType: "jsonp",
-      success: function (response) {
-                var beername = document.getElementById("input-name").value; 
-                var num = document.getElementById("input-quantity").value;
-
-
-
-                console.log(beername);
-                window.allbeers = response;
-                var beers = response;
-                var beerCounter = response.length;
-                console.log(beerCounter);
-                console.log(beers[0]);
-
-              }
-
-
-      });
-    return false;
-    } catch (e){console.log(e.description);}
-  }
+}
 
   function calculateShot(beer, num) {
-  var abv = 5.5;
+  var abv = beer.abv;
   var size = 12;
-  var numofstdrinks = (abv/100)*size*2;
-  document.getElementById("drink-count").innerHTML = numofstdrinks*num;
+  var numofstdrinks = (abv/100)*size*2*num;
+  var toPut = Math.floor(numofstdrinks * 100) / 100;
+  $("#result-font").html("You have had <strong><span id='drink-count'>" +toPut+"</span></strong> Standard Drinks</h3>");
   return numofstdrinks;
 }
 
