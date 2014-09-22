@@ -4,7 +4,7 @@ function getBeer(beername, quantity) {
 	console.log("hit");
 	try {
 			$.ajax({
-		 		url:"http://ontariobeerapi.ca/beers",
+		 		url:"http://ontariobeerapi.ca/beers/?callback=?",
 		  		dataType: "jsonp",
 				crossDomain: true,
 				complete: function(jqXHR) {
@@ -43,6 +43,15 @@ function accessData(response) {
 	console.log(beers);
 	console.log("waz hurr");
 };
+
+
+function calculateShot(beer) {
+	var abv = 5.5;
+	var size = 12;
+	var numofstdrinks = (abv/100)*size*2;
+	document.getElementById("drink-count").innerHTML = numofstdrinks;
+	return numofstdrinks;
+}
 
 // $(function() {   // when document is ready
 // 	$("#f1").submit(getBeer);
