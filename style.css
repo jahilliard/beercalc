@@ -50,3 +50,11 @@ z-index: +1;
 -moz-border-radius: 20px;
 border-radius: 20px;  
 }
+
+.popover-title {
+    color: black;
+}
+
+.popover-content{
+    color: black;
+}

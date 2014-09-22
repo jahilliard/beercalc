@@ -82,15 +82,18 @@ $(function() {
 });
 
 //handles the local json call for the developer info
-$( document ).ready(function() {
 $(function() {    // do once original document loaded and ready
-        $('#info').click(function() {
+        $('#info').mouseover(function() {
                 $.getJSON("devs.json", function(responseObject, diditwork) {
-                        console.log(diditwork);
                         var displayText = responseObject.devs[0];
-                        console.log(displayText);
-                $("#dev-info").html(displayText);
+                        $("#info").attr('data-content', displayText);
+                        $("#info").popover('show');
                 } );  // getJSON
         } );  // click
   } ); // onReady
+
+$(function() { 
+  $('#info').mouseout(function (){
+    $("#info").popover('destroy');
+  });
 });
