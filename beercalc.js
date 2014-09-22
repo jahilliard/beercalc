@@ -19,23 +19,9 @@ function getBeer(beername, quantity) {
 					 console.log("nope");
 				};
 
-
-
-
-
 	$("#add-button").html('<span class="glyphicon glyphicon-ok"></span>');
 	$('#add-button').addClass("btn-success");
 
-
-	// 	function(beername) {
-	//   console.log("HEREHASDFASDF");
-	//   alert(beername);
-	//   console.log(beername);
-	//   $(beername).each(function() {
-	//     console.log({text : this.id});
-	//     console.log({text : this.name});
-	//   });
-	// })
 	console.log("DGSFSDGSDFGSDG");
  };	
 
@@ -45,14 +31,67 @@ function accessData(response) {
 	console.log("waz hurr");
 };
 
-
-function calculateShot(beer) {
+function calculateShot(beer, num) {
 	var abv = 5.5;
 	var size = 12;
 	var numofstdrinks = (abv/100)*size*2;
-	document.getElementById("drink-count").innerHTML = numofstdrinks;
+	document.getElementById("drink-count").innerHTML = numofstdrinks*num;
 	return numofstdrinks;
 }
+
+$(document).ready(function(){
+
+$(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "Budweiser",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $("#input-name").autocomplete({ source : availableTags });
+  });
+
+});
+
+  $(function() {    // do once original document loaded and ready
+        $('form[name="eg1"] input').click(function() {
+                $.getJSON("cats.json", function(responseObject, diditwork) {
+                        console.log(diditwork);
+                        var displayText = 
+                                "There are " 
+                                + responseObject.cats.length 
+                                + " homies:<ol>";
+                        for (var i = 0; i<responseObject.cats.length; i++) {
+                                var cat = responseObject.cats[i];
+                                displayText += "<li>"
+                                                        +cat.firstName + " " 
+                                                        + cat.lastName + "<\/li>";
+                                }
+                        displayText += "<\/ul>";
+                $("#responseArea").html(displayText);
+                } );  // getJSON
+        } );  // click
+  } ); // onReady
+
+
 
 // $(function() {   // when document is ready
 // 	$("#f1").submit(getBeer);
