@@ -39,6 +39,9 @@ function getBeer(beername, quantity) {
   return numofstdrinks;
 }
 
+function addPicture(){
+  
+}
 
 $(document).ready(function(){
 

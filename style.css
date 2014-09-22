@@ -38,4 +38,12 @@ h1{
     padding-bottom: 2%;
 }
 
-#info{margin-top: 40px;}
+#info{margin-top: 0px;
+        margin-bottom: 5px;
+}
+
+#beer-image img{
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;  
+}

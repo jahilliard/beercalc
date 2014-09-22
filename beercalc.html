@@ -22,10 +22,13 @@
 <body>
     <h1 class="text-center">How Much Did I Drink?</h1>
       
-    <div class="panel panel-default panel-black" id="panel-result">
+    <div class="panel panel-default panel-black text-center" id="panel-result">
       <div class="panel-body">
-        <h3 class="panel-title text-center" id="result-font">You have had <strong><span id="drink-count">0</span></strong> Standard Drinks</h3>
+        <h3 class="panel-title" id="result-font">You have had <strong><span id="drink-count">0</span></strong> Standard Drinks</h3>
       </div>
+
+          <button type="button" class="btn btn-default" id="info"><span class="glyphicon glyphicon-info-sign"></span></button>
+
     </div>
     
     <div class="panel panel-default panel-black text-center" id="panel-input">
@@ -47,7 +50,11 @@
             Add
         </button>
     </form>
-    <button type="button" class="btn btn-default" id="info"><span class="glyphicon glyphicon-info-sign"></span></button>
+
+    <div id="beer-image">
+        <img src="">
+    </div>
+
     </div>
 
     <script
