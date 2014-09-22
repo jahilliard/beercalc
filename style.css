@@ -38,8 +38,10 @@ h1{
     padding-bottom: 2%;
 }
 
-#info{margin-top: 0px;
-        margin-bottom: 5px;
+#info{
+z-index: +1;
+    margin-top: 10px;
+        margin-left: 10px;
 }
 
 #beer-image img{

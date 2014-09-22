@@ -7,10 +7,13 @@ function getBeer(beername, quantity) {
     if (beerlist[i].name.toLowerCase() === beername.toLowerCase()){
       calculateShot(beerlist[i], quantity);
       addPicture(beerlist[i])
+      goodButton();
       return false;
     }
   };
   $("#result-font").html("This is not a beer in the System!");
+  badButton();
+  removePicture();
 
 }
 
@@ -25,6 +28,20 @@ function getBeer(beername, quantity) {
 
 function addPicture(beer){
   $("#beer-image img").attr('src',beer.image_url);
+}
+
+function removePicture(){
+  $("#beer-image img").attr('src',"");
+}
+
+function goodButton(){
+  $("#add-button").html('<span class="glyphicon glyphicon-ok"></span>');
+  $("#add-button").removeClass("btn-danger").addClass("btn-success");
+}
+
+function badButton(){
+  $("#add-button").html('<span class="glyphicon glyphicon-remove"></span>');
+  $("#add-button").removeClass("btn-success").addClass("btn-danger");
 }
 
 $(document).ready(function(){
