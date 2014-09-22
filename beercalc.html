@@ -37,16 +37,16 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon">Beer Name</span>
-                <input type="text" class="form-control" placeholder="Budweiser">
+                <input name="bname" type="text" class="form-control" placeholder="Budweiser">
             </div>
         </div> 
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"># of Beers</span>
-                <input type="text" class="form-control" placeholder="1">
+                <input type="text" class="form-control" placeholder="1" name = "quantity">
             </div>
         </div> 
-        <button type="button" class="btn btn-default">
+        <button type="button" class="btn btn-default" onclick="getBeer(this.form.bname.value, this.form.quantity.value)">
             Add
         </button>
     </form>
